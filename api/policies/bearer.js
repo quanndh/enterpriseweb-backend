@@ -15,9 +15,11 @@ module.exports = async (req, res, next) => {
         if (token === 'dev') {
             user = {
                 id: 1,
-                fullName: "root",
-                team: 1,
-                position: 1
+                email: "root@gmail.com",
+                password: "$2b$12$6mXJStd.Q7Gc6.yKAQlTgeND4OZX1V3KornXIy7lc/dbpsNAGuUR6",
+                fullName: "Nguyễn Văn Root",
+                role: 1,
+                isHigher: 1
             }
         } else {
             user = sails.helpers.jwt.verify(token);

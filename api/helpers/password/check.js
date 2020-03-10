@@ -21,14 +21,10 @@ module.exports = {
     },
 
   },
-
-
-  fn: async function (inputs) {
+  sync: true,
+  fn: function (inputs) {
     let { password, hashPassword } = inputs;
-    let a = await bcrypt.compare(password, hashPassword)
-    return a;
+    return bcrypt.compareSync(password.toString(), hashPassword.toString())
   }
-
-
 };
 

@@ -63,6 +63,3 @@ module.exports = {
   }
 };
 
-setInterval(() => {
-  logger.debug(`[QUEUE SIZE ${Object.keys(queue).length}]`)
-}, 2000);

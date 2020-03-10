@@ -1,0 +1,34 @@
+[
+    {
+        "id": 1,
+        "email": "root@gmail.com",
+        "password": "$2b$12$6mXJStd.Q7Gc6.yKAQlTgeND4OZX1V3KornXIy7lc/dbpsNAGuUR6",
+        "fullName": "Nguyễn Văn Root",
+        "role": 1,
+        "isHigher": 1
+    },
+    {
+        "id": 2,
+        "email": "admin@gmail.com",
+        "password": "$2b$12$6mXJStd.Q7Gc6.yKAQlTgeND4OZX1V3KornXIy7lc/dbpsNAGuUR6",
+        "fullName": "Nguyễn Văn admin",
+        "role": 1,
+        "isHigher": 0
+    },
+    {
+        "id": 3,
+        "email": "tutor@gmail.com",
+        "password": "$2b$12$6mXJStd.Q7Gc6.yKAQlTgeND4OZX1V3KornXIy7lc/dbpsNAGuUR6",
+        "fullName": "Nguyễn Văn tutor",
+        "role": 2,
+        "isHigher": 1
+    },
+    {
+        "id": 4,
+        "email": "student@gmail.com",
+        "password": "$2b$12$6mXJStd.Q7Gc6.yKAQlTgeND4OZX1V3KornXIy7lc/dbpsNAGuUR6",
+        "fullName": "Nguyễn Văn student",
+        "role": 2,
+        "isHigher": 0
+    }
+]
