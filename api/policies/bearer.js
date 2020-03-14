@@ -7,7 +7,7 @@ module.exports = async (req, res, next) => {
                 .status(401)
                 .json({
                     code: 401,
-                    message: 'Bạn không có quyền truy cập'
+                    message: 'Unathorized'
                 });
         }
         let token = auth.split(' ')[1];
@@ -19,7 +19,6 @@ module.exports = async (req, res, next) => {
                 password: "$2b$12$6mXJStd.Q7Gc6.yKAQlTgeND4OZX1V3KornXIy7lc/dbpsNAGuUR6",
                 fullName: "Nguyễn Văn Root",
                 role: 1,
-                isHigher: 1
             }
         } else {
             user = sails.helpers.jwt.verify(token);
@@ -31,7 +30,7 @@ module.exports = async (req, res, next) => {
             .status(401)
             .json({
                 code: 401,
-                message: 'Hết phiên làm việc!'
+                message: 'Unathorized'
             });
     }
 };

@@ -5,30 +5,34 @@
         "password": "$2b$12$6mXJStd.Q7Gc6.yKAQlTgeND4OZX1V3KornXIy7lc/dbpsNAGuUR6",
         "fullName": "Nguyễn Văn Root",
         "role": 1,
-        "isHigher": 1
+        "phone": "1234567890",
+        "birthYear": 1999
     },
     {
         "id": 2,
         "email": "admin@gmail.com",
         "password": "$2b$12$6mXJStd.Q7Gc6.yKAQlTgeND4OZX1V3KornXIy7lc/dbpsNAGuUR6",
         "fullName": "Nguyễn Văn admin",
-        "role": 1,
-        "isHigher": 0
+        "role": 2,
+        "phone": "1234567890",
+        "birthYear": 1999
     },
     {
         "id": 3,
         "email": "tutor@gmail.com",
         "password": "$2b$12$6mXJStd.Q7Gc6.yKAQlTgeND4OZX1V3KornXIy7lc/dbpsNAGuUR6",
         "fullName": "Nguyễn Văn tutor",
-        "role": 2,
-        "isHigher": 1
+        "role": 3,
+        "phone": "1234567890",
+        "birthYear": 1999
     },
     {
         "id": 4,
         "email": "student@gmail.com",
         "password": "$2b$12$6mXJStd.Q7Gc6.yKAQlTgeND4OZX1V3KornXIy7lc/dbpsNAGuUR6",
         "fullName": "Nguyễn Văn student",
-        "role": 2,
-        "isHigher": 0
+        "role": 4,
+        "phone": "1234567890",
+        "birthYear": 1999
     }
 ]

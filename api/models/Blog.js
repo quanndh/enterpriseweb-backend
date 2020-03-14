@@ -9,12 +9,13 @@ module.exports = {
 
   attributes: {
 
-    title: { type: 'string' },
     content: { type: 'string' },
     comment: {
-      collection: 'Comment',
-      via: 'blogId'
-    }
+      type: 'json', defaultsTo: []
+    },
+    file: { type: 'json', defaultsTo: [] },
+    image: { type: 'json', defaultsTo: [] },
+    owner: { model: 'User' }
 
   },
 

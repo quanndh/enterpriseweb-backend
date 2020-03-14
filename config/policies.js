@@ -18,5 +18,8 @@ module.exports.policies = {
   ***************************************************************************/
 
   '*': 'bearer',
-  'user/login': true
+  'user/login': true,
+  "user/create-user": ['bearer', 'isAdmin'],
+  'user/get-list-user': ['bearer', 'isAdmin'],
+  'user/assign-user-to-class': ['bearer', 'isAdmin']
 };

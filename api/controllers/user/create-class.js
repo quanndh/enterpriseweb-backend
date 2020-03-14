@@ -28,9 +28,11 @@ module.exports = {
         message: 'Not enough information'
       })
 
-      await Class.create({ title, desc })
+      let createdClass = await Class.create({ title, desc }).fetch();
+      await ActionLog.create({ owner: this.req.user.id, action: `Create class: "${createdClass.title}"` })
       return exits.success({
         code: 0,
+        data: createdClass,
         message: 'New class created'
       })
     } catch (error) {

@@ -24,7 +24,7 @@ module.exports = {
   sync: true,
   fn: function (inputs) {
     let { user } = inputs;
-    return jwt.sign({ ...user }, "ahihisescret", { expiresIn: '30m' })
+    return jwt.sign({ ...user }, "ahihisescret", { expiresIn: '24h' })
   }
 
 

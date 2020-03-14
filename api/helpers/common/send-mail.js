@@ -43,20 +43,17 @@ module.exports = {
         ignoreTLS: true
       });
 
-      let url = `localhost:3000/class/${data.classId}`
+      let url = `http://localhost:3000/class/${data.classId}`
 
       await transporter.sendMail({
         from: 'quanndh1810@gmail.com',
         to: data.email,
-        subject: "Class Assign",
+        subject: data.subject,
         text: `Inform about your class status`,
-        html: `
-          <div>
-            <p>Dear mister/miss,</p> <br></br>
-            <p>We want to inform that, you are assigned to class ${data.class}</p> <br></br>
-            <p>Link to your class: <a href="${url}">${url}</a></p>
-          </div>
-        `
+        html: `<div> 
+        ${data.content}
+        <p>Best regards from xTutoring.</p>
+        </div>`
       });
 
       // await SendMailLog.create({ data: data });

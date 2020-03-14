@@ -11,7 +11,8 @@ module.exports = {
     email: { type: 'string' },
     fullName: { type: 'string' },
     role: { type: 'number' },
-
+    phone: { type: 'string' },
+    birthYear: { type: "number" }
   },
 
 
@@ -24,7 +25,7 @@ module.exports = {
   fn: async function (inputs, exits) {
 
     try {
-      let { email, fullName, role } = inputs;
+      let { email, fullName, role, phone, birthYear } = inputs;
 
       if (!email || !fullName || !role) return exits.fail({
         code: 1,
@@ -43,15 +44,19 @@ module.exports = {
       let newUser = {
         email,
         fullName,
-        role: role === 1 ? 1 : 2,
-        isHigher: role === 2 ? 1 : 0,
-        password
+        role,
+        password,
+        phone,
+        birthYear
       }
 
-      await User.create(newUser)
+      let createdUser = await User.create(newUser).fetch()
+      delete createdUser.password
+      await ActionLog.create({ owner: this.req.user.id, action: 'Create new user', role: this.req.user.role })
       return exits.success({
         code: 0,
-        message: 'New user created'
+        message: 'New user created',
+        data: createdUser
       })
     } catch (error) {
       return exits.fail({

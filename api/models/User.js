@@ -9,17 +9,18 @@ module.exports = {
   ROLE: {
     ADMIN: 1,
     USER: 2,
-  },
-  isHigher: {
-    FALSE: 0,
-    TRUE: 1
+    TUTOR: 3,
+    STUDENT: 4
   },
   attributes: {
     email: { type: 'string' },
     password: { type: 'string' },
     fullName: { type: 'string' },
     role: { type: 'number' },
-    isHigher: { type: 'number' },
+    avatar: { type: 'string' },
+    phone: { type: 'string' },
+    birthYear: { type: 'number' },
+    classes: { type: 'json', defaultsTo: [] }
   },
 
 };
