@@ -30,9 +30,6 @@ module.exports = {
       type: 'ref',
       required: true
     },
-    employeeId: {
-      type: 'number'
-    }
   },
 
   exits: {
@@ -51,16 +48,10 @@ module.exports = {
       if (info.length === 0) {
         return exits.fail({
           code: 1,
-          message: 'Không có file được upload!',
+          message: 'No image was chosen!',
         });
       }
-      let findEmployee = await Employee.findOne({id: inputs.employeeId});
-      if (!findEmployee) {
-        return exits.fail({
-          code: 1,
-          message: 'Không tìm thấy nhân viên!'
-        })
-      }
+
       let fileUploadTmp = {
         fileName: '',
         serverFileDir: '',
@@ -83,7 +74,6 @@ module.exports = {
         tmp.fileType = v.type;
         tmp.status = v.status;
         tmp.field = v.field;
-        tmp.employee = inputs.employeeId;
         try {
           await moveFile(v.fd, FileUpload.getFilePath(tmp));
           filesCreate.push(tmp);
@@ -106,7 +96,7 @@ module.exports = {
       return exits.serverError({
         code: 1,
         err: error,
-        message: 'Hệ thống gặp vấn đề, quay lại sau!'
+        message: 'System encounterd a error. Try again later'
       })
     }
 

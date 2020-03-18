@@ -15,8 +15,8 @@ module.exports = {
     },
     file: { type: 'json', defaultsTo: [] },
     image: { type: 'json', defaultsTo: [] },
-    owner: { model: 'User' }
-
+    owner: { model: 'User' },
+    class: { model: 'Class' }
   },
 
 };

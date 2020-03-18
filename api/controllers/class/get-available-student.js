@@ -26,7 +26,8 @@ module.exports = {
       let query = { role: 4 }
       if (searchString) query.fullName = { 'contains': searchString }
       let users = await User.find(query)
-      users = users.filter(u => !u.classes.includes(classId))
+      let updateClass = await Class.findOne(classId)
+      users = users.filter(u => !updateClass.students.includes(u.id))
       users = users.map(u => {
         delete u.password
         return u

@@ -39,7 +39,7 @@ module.exports = {
       await Class.updateOne(classId).set({
         students: updateClass.students
       })
-      await ActionLog.create({ owner: this.req.user.id, action: `Update class ${updateClass.title}` })
+      await ActionLog.create({ owner: this.req.user.id, action: `Remove ${student.fullName} from class ${updateClass.title}` })
       return exits.success({
         code: 0,
         message: "Class update successfully"

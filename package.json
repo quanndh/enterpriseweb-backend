@@ -17,6 +17,7 @@
     "sails-hook-grunt": "^4.0.0",
     "sails-hook-orm": "^2.1.1",
     "sails-hook-sockets": "^2.0.0",
+    "sails-hook-uploads": "^0.4.2",
     "sails-mysql": "^1.0.1",
     "sharp": "^0.25.1",
     "shortid": "^2.2.15",

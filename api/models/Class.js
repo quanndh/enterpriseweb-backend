@@ -12,7 +12,7 @@ module.exports = {
     tutor: {
       model: 'User'
     },
-    isActive: { type: 'number' },
+    isActive: { type: 'number', defaultsTo: 0 },
     title: { type: 'string' },
     desc: { type: 'string' }
   },

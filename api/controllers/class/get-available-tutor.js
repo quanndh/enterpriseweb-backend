@@ -23,8 +23,9 @@ module.exports = {
 
     try {
       let { classId, tutorName } = inputs;
+      let updateClass = await Class.findOne(classId)
       let tutors = await User.find({ role: 3, fullName: { 'contains': tutorName } })
-      tutors = tutors.filter(t => !t.classes.includes(classId));
+      tutors = tutors.filter(t => t.id !== updateClass.tutor)
       tutors = tutors.map(t => {
         delete t.password;
         return t;

@@ -31,16 +31,21 @@ module.exports = {
         code: 404,
         message: 'User not found'
       })
-      await User.updateOne(id).set({
+      let updatedUser = await User.updateOne(id).set({
         fullName,
         email,
         birthYear,
         phone,
         avatar
       })
+      delete updatedUser.password
+      if (avatar) {
+        await ActionLog.create({ owner: this.req.user.id, action: 'Change avatar' })
+      }
       return exits.success({
         code: 0,
-        message: "User updated successfully"
+        message: "User updated successfully",
+        data: updatedUser
       })
     } catch (error) {
       return exits.fail({

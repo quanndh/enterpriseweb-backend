@@ -20,7 +20,6 @@ module.exports = {
     avatar: { type: 'string' },
     phone: { type: 'string' },
     birthYear: { type: 'number' },
-    classes: { type: 'json', defaultsTo: [] }
   },
 
 };

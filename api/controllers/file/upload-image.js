@@ -51,7 +51,7 @@ module.exports = {
       let info = await sails.upload(inputs.images);
       if (info.length === 0) {
         return res.badRequest({
-          message: sails.__('Không có file được upload!'),
+          message: 'No image found!',
         });
       }
 
@@ -97,12 +97,12 @@ module.exports = {
         } else {
           let notCreate = {
             fileName: tmp.fileName,
-            error: 'File không phải định dạng hình ảnh'
+            error: 'It is not a image'
           };
           filesNotCreate.push(notCreate);
           return this.res.send({
             code: 1,
-            message: 'File không phải dạng hình ảnh!',
+            message: 'This file is not a valid image!',
             notCreate: filesNotCreate
           })
         }
@@ -116,7 +116,7 @@ module.exports = {
     } catch (error) {
       return this.res.send({
         code: 1,
-        message: "Đăng ảnh thất bại",
+        message: 'System encounterd a error. Try again later',
         error: String(error)
       });
     }
