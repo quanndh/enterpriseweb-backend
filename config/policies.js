@@ -21,5 +21,6 @@ module.exports.policies = {
   'user/login': true,
   "user/create-user": ['bearer', 'isAdmin'],
   'user/get-list-user': ['bearer', 'isAdmin'],
-  'user/assign-user-to-class': ['bearer', 'isAdmin']
+  'user/assign-user-to-class': ['bearer', 'isAdmin'],
+  'file/download-file': true
 };

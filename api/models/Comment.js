@@ -11,8 +11,8 @@ module.exports = {
 
     owner: { model: 'User' },
     content: { type: 'string' },
-    blogId: { model: 'Blog' }
-
+    blogId: { model: 'Blog' },
+    isDelete: { type: 'number', defaultsTo: 0 }
   },
 
 };

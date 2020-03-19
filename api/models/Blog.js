@@ -10,13 +10,11 @@ module.exports = {
   attributes: {
 
     content: { type: 'string' },
-    comment: {
-      type: 'json', defaultsTo: []
-    },
     file: { type: 'json', defaultsTo: [] },
     image: { type: 'json', defaultsTo: [] },
     owner: { model: 'User' },
-    class: { model: 'Class' }
+    class: { model: 'Class' },
+    isDelete: { type: 'number', defaultsTo: 0 }
   },
 
 };

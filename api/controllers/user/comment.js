@@ -37,14 +37,12 @@ module.exports = {
         })
       }
       let newComment = await Comment.create({ blogId, content, owner: this.req.user.id }).fetch();
-      let comment = blog.comment;
-      comment.push(newComment.id);
-      await Blog.updateOne(blogId).set({
-        comment
-      })
+
+      await ActionLog.create({ owner: this.req.user.id, action: 'Post a new comment' })
       return exits.success({
         code: 0,
-        message: "Success"
+        message: "Success",
+        data: newComment
       })
     } catch (error) {
       return exits.fail({

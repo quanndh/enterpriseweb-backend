@@ -31,19 +31,21 @@ module.exports = {
         classInfo.students[i] = student
       }
 
-      let blogs = await Blog.find({ class: classId }).sort('createdAt DESC').populate('owner')
+      let blogs = await Blog.find({ class: classId, isDelete: 0 }).sort('createdAt DESC').populate('owner')
 
       for (let i = 0; i < blogs.length; i++) {
-        let comments = await Comment.find({ blogId: blogs[i].id }).sort('createdAt DESC').populate('owner')
+        let comments = await Comment.find({ blogId: blogs[i].id, isDelete: 0 }).sort('createdAt DESC').populate('owner')
         delete blogs[i].owner.password;
         comments = comments.map(c => {
           delete c.owner.password
           return c
         })
+        comments.sort((a, b) => (a.createdAt > b.createdAt) ? 1 : -1);
         blogs[i].comments = comments;
         if (blogs[i].file.length) {
           for (let j = 0; j < blogs[i].file.length; j++) {
             let file = await FileUpload.findOne({ serverFileName: blogs[i].file[j] })
+            file.fullPath = 'http://localhost:1337/other/' + file.serverFileName
             delete file.size;
             delete file.fileType;
             delete file.status;

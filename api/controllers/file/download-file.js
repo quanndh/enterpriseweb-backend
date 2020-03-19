@@ -11,20 +11,20 @@ module.exports = {
     // where: {
     //   type: 'ref'
     // },
-    fileName: {
-      type: 'number',
+    serverFileName: {
+      type: 'string',
       required: true
     }
   },
 
 
   exits: {
-
+    success: {},
   },
 
 
   fn: async function (inputs, exits) {
-    var file = await FileUpload.findOne({ serverFileName: inputs.fileName });
+    var file = await FileUpload.findOne({ serverFileName: inputs.serverFileName });
     if (!file) {
       return this.res.notFound({
         message: sails.__('File không tồn tại!')
