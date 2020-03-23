@@ -43,6 +43,7 @@ module.exports = {
       if (blog.file.length) {
         for (let j = 0; j < blog.file.length; j++) {
           let file = await FileUpload.findOne({ serverFileName: blog.file[j] })
+          file.fullPath = 'http://localhost:1337/other/' + file.serverFileName
           delete file.size;
           delete file.fileType;
           delete file.status;

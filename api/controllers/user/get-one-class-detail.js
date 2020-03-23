@@ -55,6 +55,18 @@ module.exports = {
       }
       classInfo.blogs = blogs;
 
+      if (classInfo.meeting) {
+        let meeting = await Meeting.findOne({ id: classInfo.meeting, isClose: 0 });
+        for (let i = 0; i < meeting.participants.length; i++) {
+          let user = await User.findOne(meeting.participants[i])
+          delete user.password
+          meeting.participants[i] = user
+        }
+        classInfo.meeting = meeting;
+      } else {
+        classInfo.meeting = {}
+      }
+
       return exits.success({
         code: 0,
         data: classInfo
