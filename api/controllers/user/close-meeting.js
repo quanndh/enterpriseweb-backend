@@ -1,3 +1,5 @@
+const moment = require('moment')
+
 module.exports = {
 
 
@@ -29,6 +31,9 @@ module.exports = {
         meeting: null
       });
       await ActionLog.create({ owner: this.req.user.id, action: 'Close meeting' })
+      await User.updateOne(this.req.user.id).set({
+        lastActivity: moment().valueOf()
+      })
       return exits.success({
         code: 0,
         message: 'Meeting closed'

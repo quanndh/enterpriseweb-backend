@@ -34,6 +34,10 @@ module.exports = {
         delete u.password
         return u
       })
+      for (let i = 0; i < users.length; i++) {
+        let messages = await ChatMessage.count({ sender: users[i].id })
+        users[i].messages = messages
+      }
       // let total = await User.count(query)
       return exits.success({
         code: 0,

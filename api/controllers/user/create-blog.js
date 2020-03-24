@@ -1,3 +1,5 @@
+const moment = require('moment')
+
 module.exports = {
 
 
@@ -60,6 +62,9 @@ module.exports = {
       blog.comments = comments;
 
       await ActionLog.create({ owner: this.req.user.id, action: 'Create a new post in ' + classInfo.title })
+      await User.updateOne(this.req.user.id).set({
+        lastActivity: moment().valueOf()
+      })
       return exits.success({
         code: 0,
         message: 'Blog created successfully',

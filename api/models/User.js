@@ -20,6 +20,7 @@ module.exports = {
     avatar: { type: 'string' },
     phone: { type: 'string' },
     birthYear: { type: 'number' },
+    lastActivity: { type: 'number' }
   },
 
 };

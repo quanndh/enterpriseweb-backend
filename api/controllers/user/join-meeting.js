@@ -1,3 +1,5 @@
+const moment = require('moment')
+
 module.exports = {
 
 
@@ -64,6 +66,9 @@ module.exports = {
     }, req);
 
     await ActionLog.create({ owner: this.req.user.id, action: 'Join meeting ' + meeting.title });
+    await User.updateOne(this.req.user.id).set({
+      lastActivity: moment().valueOf()
+    })
     return exits.success({
       code: 0,
       message: 'Joined meeting',

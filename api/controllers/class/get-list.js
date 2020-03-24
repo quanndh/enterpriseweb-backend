@@ -32,6 +32,10 @@ module.exports = {
           delete student.password
           classes[i].students[j] = student
         }
+        let blogs = await Blog.count({ class: classes[i].id })
+        classes[i].blogs = blogs;
+        let meetings = await Meeting.count({ classId: classes[i].id })
+        classes[i].meetings = meetings
       }
       return exits.success({
         code: 0,
