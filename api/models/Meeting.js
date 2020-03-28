@@ -12,8 +12,8 @@ module.exports = {
     classId: { model: 'Class' },
     participants: { type: 'json', defaultsTo: [] },
     isClose: { type: 'number', defaultsTo: 0 },
-    creater: { model: 'User' }
-
+    creater: { model: 'User' },
+    peers: { type: 'json', defaultsTo: [] }
   },
 
 };

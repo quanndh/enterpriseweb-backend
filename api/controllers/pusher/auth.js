@@ -1,4 +1,4 @@
-const pusher = require('pusher-js');
+const pusher = require('pusher');
 module.exports = {
 
 
@@ -24,12 +24,12 @@ module.exports = {
     let res = this.res;
     var socketId = req.body.socket_id;
     var channel = req.body.channel_name;
-    let userId = req.body.userId;
+    let userId = req.user.id;
 
     let userInfo = await User.findOne(userId)
     delete userInfo.password;
 
-    let pusher = new Pusher({
+    var pusher = new Pusher({
       appId: '967754',
       key: 'de206cb50d3197dcb0ba',
       secret: 'eaa31bb117b0550c12d4',

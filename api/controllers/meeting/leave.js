@@ -33,8 +33,12 @@ module.exports = {
         message: 'Meeting is not available'
       })
       meeting.participants = meeting.participants.filter(user => user !== this.req.user.id)
+      meeting.peers = meeting.peers.filter(peer => {
+        return peer.userId !== this.req.user.id
+      })
       await Meeting.updateOne(meetingId).set({
-        participants: meeting.participants
+        participants: meeting.participants,
+        peers: meeting.peers
       })
       let online = [];
       let leaveUser = await User.findOne(this.req.user.id);

@@ -49,7 +49,7 @@ module.exports = {
         })
       }
 
-      let url = `http://localhost:3000/classes/${updatedClass.id}`
+      let url = `http://localhost:3000/users/classes/${updatedClass.id}`
 
       let data = {
         email: tutorId ? tutor.email : studentEmails,

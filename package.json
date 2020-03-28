@@ -13,6 +13,7 @@
     "jsonwebtoken": "^8.5.1",
     "moment": "^2.24.0",
     "nodemailer": "^6.4.4",
+    "pusher": "^3.0.0",
     "pusher-js": "^5.1.1",
     "sails": "^1.2.3",
     "sails-hook-grunt": "^4.0.0",
