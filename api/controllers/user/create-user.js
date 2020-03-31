@@ -53,6 +53,22 @@ module.exports = {
       let createdUser = await User.create(newUser).fetch()
       delete createdUser.password
       await ActionLog.create({ owner: this.req.user.id, action: 'Create new user', role: this.req.user.role })
+
+      let url = `http://localhost:3000`
+
+      let data = {
+        email: email,
+        subject: "Welcome to our system",
+        content: `
+          <p>Dear ${createdUser.fullName},</p>
+          <p>We very glad that you become a part of our system. Please use the following link to start your education journey!!!</p>
+          <p>Use your email with the password <strong>123456</strong> to login. Remember to change your password later!!!</p>
+          <p><a href="${url}">${url}</a></p>
+         `
+      }
+
+      await sails.helpers.common.sendMail(data)
+
       return exits.success({
         code: 0,
         message: 'New user created',

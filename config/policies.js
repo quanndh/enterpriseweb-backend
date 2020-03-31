@@ -23,4 +23,5 @@ module.exports.policies = {
   'user/get-list-user': ['bearer', 'isAdmin'],
   'user/assign-user-to-class': ['bearer', 'isAdmin'],
   'file/download-file': true,
+  'user/send-reset-mail': true
 };
