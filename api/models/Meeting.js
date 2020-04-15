@@ -13,7 +13,6 @@ module.exports = {
     participants: { type: 'json', defaultsTo: [] },
     isClose: { type: 'number', defaultsTo: 0 },
     creater: { model: 'User' },
-    peers: { type: 'json', defaultsTo: [] }
   },
 
 };

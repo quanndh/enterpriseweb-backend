@@ -1,15 +1,16 @@
 module.exports = {
 
 
-  friendlyName: 'Remove student',
+  friendlyName: 'Get message',
 
 
   description: '',
 
 
   inputs: {
-    tutorId: { type: 'number' },
-    studentId: { type: 'number' }
+    meetingId: { type: 'number' },
+    skip: { type: 'number' },
+    limit: { type: 'number' }
   },
 
 
@@ -22,20 +23,20 @@ module.exports = {
   fn: async function (inputs, exits) {
 
     try {
-      let { tutorId, studentId } = inputs;
-      await Class.destroy({ tutor: tutorId, students: { 'contains': studentId } })
-      await ActionLog.create({ owner: this.req.user.id, action: `Allocate pair` })
+      let { meetingId, skip, limit } = inputs;
+      let messages = await ChatMessage.find({ meeting: meetingId }).skip(skip).limit(limit).sort('createdAt DESC').populate('sender')
       return exits.success({
         code: 0,
-        message: "Allocate successfully"
+        message: 'Success',
+        data: messages
       })
+
     } catch (error) {
       return exits.fail({
         code: 500,
         message: 'System encounterd a error. Try again later'
       })
     }
-
   }
 
 

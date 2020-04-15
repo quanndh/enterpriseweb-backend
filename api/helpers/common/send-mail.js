@@ -20,7 +20,7 @@ module.exports = {
   exits: {
 
     success: {
-      description: 'All done.',
+      statusCode: 200
     },
 
   },
@@ -43,8 +43,6 @@ module.exports = {
         ignoreTLS: true
       });
 
-      let url = `http://localhost:3000/class/${data.classId}`
-
       await transporter.sendMail({
         from: 'quanndh1810@gmail.com',
         to: data.email,
@@ -62,7 +60,7 @@ module.exports = {
 
 
     } catch (error) {
-      await SendMailLog.create({ to: data.to, subject: data.subject, content: data.content, error: error.message });
+      // await SendMailLog.create({ to: data.to, subject: data.subject, content: data.content, error: error.message });
     }
   }
 

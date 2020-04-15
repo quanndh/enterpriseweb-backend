@@ -1,14 +1,14 @@
 module.exports = {
 
 
-  friendlyName: 'Get peer',
+  friendlyName: 'Get student class',
 
 
   description: '',
 
 
   inputs: {
-    meetingId: { type: 'number' }
+
   },
 
 
@@ -21,21 +21,16 @@ module.exports = {
   fn: async function (inputs, exits) {
 
     try {
-      let { meetingId } = inputs;
-      let meetingInfo = await Meeting.findOne(meetingId)
+      let classInfo = await Class.findOne({ students: { "contains": this.req.user.id }, isActive: 1 })
       return exits.success({
         code: 0,
-        data: meetingInfo.peers
+        data: classInfo.id
       })
     } catch (error) {
       return exits.fail({
         code: 500,
-        message: 'System encounterd a error. Try again later',
-        err: error
+        message: 'System encounterd a error. Try again later'
       })
     }
-
   }
-
-
 };

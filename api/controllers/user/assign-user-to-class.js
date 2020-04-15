@@ -9,7 +9,7 @@ module.exports = {
 
   inputs: {
     students: { type: 'ref' },
-    classId: { type: 'number' },
+    // classId: { type: 'number' },
     tutorId: { type: 'number' }
   },
 
@@ -23,57 +23,57 @@ module.exports = {
   fn: async function (inputs, exits) {
 
     try {
-      let { tutorId, classId, students } = inputs;
+      let { tutorId, students } = inputs;
 
-      let assignClass = await Class.findOne(classId).populate('tutor')
-      let tutor;
-      let updatedClass;
-      if (tutorId) {
-        tutor = await User.findOne(tutorId)
+      let tutorInfo = await User.findOne(tutorId);
+      let studentList = "";
+      let studentMail = [];
 
-        updatedClass = await Class.updateOne(classId).set({
-          tutor: tutor.id
+      for (let i = 0; i < students.length; i++) {
+        let studentInfo = await User.findOne(students[i])
+        studentList += `<li>${studentInfo.fullName} - ${studentInfo.email}</li>`
+        studentMail.push(studentInfo.email)
+        await Class.create({
+          title: `Guild from ${tutorInfo.fullName}`,
+          desc: `Place for ${studentInfo.fullName} discuss with tutor`,
+          tutor: tutorId,
+          students: [students[i]]
         })
       }
-
-      let studentEmails = [];
-      if (students) {
-        students = students.filter(s => !assignClass.students.includes(s));
-        let updateStudents = await User.find({ id: { 'in': students } });
-        for (let i = 0; i < updateStudents.length; i++) {
-          studentEmails.push(updateStudents[i].email)
-        }
-        assignClass.students = assignClass.students.concat(students);
-        updatedClass = await Class.updateOne(classId).set({
-          students: assignClass.students
-        })
-      }
-
-      let url = `http://localhost:3000/users/classes/${updatedClass.id}`
 
       let data = {
-        email: tutorId ? tutor.email : studentEmails,
-        subject: "New assigned class",
+        email: tutorInfo.email,
+        subject: "New student assigned",
         content: `
           <p>Dear mr/mrs,</p>
-          <p>We want to inform you that you are now assigned to class <strong>${updatedClass.title}</strong>.</p>
-          <p>Link to your class: <a href="${url}">${url}</a></p>
+          <p>We want to inform you that you are assigned to ${students.length} new students.</p>
+          <ul>${studentList}</ul>
          `
       }
 
-      await ActionLog.create({ owner: this.req.user.id, action: `Assign new people to class ${updatedClass.title}`, role: this.req.user.role })
+      await ActionLog.create({ owner: this.req.user.id, action: `Assign new student to tutor: ${tutorInfo.fullName}`, role: this.req.user.role })
+      await sails.helpers.common.sendMail(data)
+
+      data = {
+        email: studentMail,
+        subject: "New tutor assigned",
+        content: `
+          <p>Dear mr/mrs,</p>
+          <p>We want to inform you that you are assigned to new tutor: ${tutorInfo.fullName} - ${tutorInfo.email}.</p>
+         `
+      }
       await sails.helpers.common.sendMail(data)
 
       return exits.success({
         code: 0,
-        message: 'Class has been successfully updated',
-        data: updatedClass
+        message: 'Allcation has been successfully applied',
       })
 
     } catch (error) {
       return exits.fail({
         code: 500,
-        message: 'System encounterd a error. Try again later'
+        message: 'System encounterd a error. Try again later',
+        error: error
       })
     }
 

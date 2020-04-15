@@ -23,6 +23,7 @@
     "sails-mysql": "^1.0.1",
     "sharp": "^0.25.1",
     "shortid": "^2.2.15",
+    "twilio": "^3.42.1",
     "useconfig": "0.0.2",
     "winston": "^2.4.3",
     "winston-daily-rotate-file": "^4.4.2"
