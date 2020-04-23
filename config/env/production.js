@@ -47,6 +47,11 @@ module.exports = {
 
   security: {
     cors: {
+      allRoutes: true,
+      allowOrigins: '*',
+      allowCredentials: false,
+      allowRequestHeaders: 'Content-Type, Accept,Authorization',
+      allowRequestMethods: 'GET, POST, PUT,PATCH,DELETE',
       allowOrigins: [
         'https://quannguyennn.github.io/enterprise-build/',
       ]
