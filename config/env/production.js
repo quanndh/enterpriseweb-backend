@@ -72,7 +72,7 @@ module.exports = {
 
 
     onlyAllowOrigins: [
-      'https://quannguyennn.github.io',
+      // 'https://quannguyennn.github.io',
     ],
 
 
