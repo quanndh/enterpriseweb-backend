@@ -47,9 +47,9 @@ module.exports = {
 
   security: {
     cors: {
-      // allowOrigins: [
-      //   'https://example.com',
-      // ]
+      allowOrigins: [
+        'https://quannguyennn.github.io/enterprise-build/',
+      ]
     },
 
   },
