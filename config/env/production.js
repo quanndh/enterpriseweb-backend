@@ -31,7 +31,7 @@ module.exports = {
   datastores: {
     default: {
       apdapter: "sails-mysql",
-      url: "mysql://J7ygjPhALe:IHXytPbKRf@remotemysql.com:3306/app_noi_bo"
+      url: "mysql://J7ygjPhALe:IHXytPbKRf@remotemysql.com:3306/J7ygjPhALe"
     },
 
   },
