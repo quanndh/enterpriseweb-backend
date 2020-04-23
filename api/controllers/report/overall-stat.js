@@ -22,7 +22,7 @@ module.exports = {
 
     try {
       let users = await User.count();
-      let classes = await Class.count();
+      let classes = await Class.count({ isActive: 1 });
       let meeting = await Meeting.count();
       return exits.success({
         code: 0,

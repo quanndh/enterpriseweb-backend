@@ -37,7 +37,8 @@ module.exports = {
           title: `Guild from ${tutorInfo.fullName}`,
           desc: `Place for ${studentInfo.fullName} discuss with tutor`,
           tutor: tutorId,
-          students: [students[i]]
+          students: [students[i]],
+          isActive: 1
         })
       }
 
