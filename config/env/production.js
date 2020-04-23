@@ -70,7 +70,7 @@ module.exports = {
 
 
     onlyAllowOrigins: [
-      'http://ttkd.gviet.vn:4788',
+      'https://quannguyennn.github.io/enterprise-build/',
     ],
 
 
