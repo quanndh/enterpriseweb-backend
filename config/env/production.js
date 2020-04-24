@@ -73,7 +73,7 @@ module.exports = {
 
 
     onlyAllowOrigins: [
-      'https://tutoring-client.herokuapp.com/'
+      'https://tutoring-client.herokuapp.com'
     ],
 
 
