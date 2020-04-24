@@ -53,18 +53,20 @@ module.exports = {
       }
 
       await ActionLog.create({ owner: this.req.user.id, action: `Assign new student to tutor: ${tutorInfo.fullName}`, role: this.req.user.role })
-      await sails.helpers.common.sendMail(data)
+      if(process.env.NODE_ENV !== "production"){
+        await sails.helpers.common.sendMail(data)
 
-      data = {
-        email: studentMail,
-        subject: "New tutor assigned",
-        content: `
+        data = {
+          email: studentMail,
+          subject: "New tutor assigned",
+          content: `
           <p>Dear mr/mrs,</p>
           <p>We want to inform you that you are assigned to new tutor: ${tutorInfo.fullName} - ${tutorInfo.email}.</p>
          `
+        }
+        await sails.helpers.common.sendMail(data)
       }
-      await sails.helpers.common.sendMail(data)
-
+    
       return exits.success({
         code: 0,
         message: 'Allcation has been successfully applied',
