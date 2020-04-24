@@ -52,6 +52,7 @@ module.exports = {
       allowCredentials: false,
       allowRequestHeaders: 'Content-Type, Accept,Authorization',
       allowRequestMethods: 'GET, POST, PUT,PATCH,DELETE',
+      "Access-Control-Allow-Origin": 'https://tutoring-client.herokuapp.com/'
     },
 
   },
