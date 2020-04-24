@@ -48,7 +48,7 @@ module.exports = {
   security: {
     cors: {
       allRoutes: true,
-      allowOrigins: '*',
+      allowOrigins: 'https://tutoring-client.herokuapp.com/',
       allowCredentials: false,
       allowRequestHeaders: 'Content-Type, Accept,Authorization',
       allowRequestMethods: 'GET, POST, PUT,PATCH,DELETE',
@@ -72,7 +72,7 @@ module.exports = {
 
 
     onlyAllowOrigins: [
-      '*'
+      'https://tutoring-client.herokuapp.com/'
     ],
 
 
