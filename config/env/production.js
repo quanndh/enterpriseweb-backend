@@ -48,11 +48,11 @@ module.exports = {
   security: {
     cors: {
       allRoutes: true,
-      allowOrigins: ['https://tutoring-client.herokuapp.com', 'http://localhost:3000'],
+      allowOrigins: ['http://tutoring-client.herokuapp.com', 'http://localhost:3000'],
       allowCredentials: true,
       allowRequestHeaders: 'Content-Type, Accept,Authorization',
       allowRequestMethods: 'GET, POST, PUT,PATCH,DELETE',
-      accessControlAllowOrigin: ['https://tutoring-client.herokuapp.com', 'http://localhost:3000']
+      accessControlAllowOrigin: ['http://tutoring-client.herokuapp.com', 'http://localhost:3000']
     },
 
   },
@@ -72,7 +72,7 @@ module.exports = {
   sockets: {
 
 
-    onlyAllowOrigins: ['https://tutoring-client.herokuapp.com', 'http://localhost:3000'],
+    onlyAllowOrigins: ['http://tutoring-client.herokuapp.com', 'http://localhost:3000'],
 
     log: {
       level: 'debug'
