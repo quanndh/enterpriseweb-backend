@@ -30,7 +30,7 @@ module.exports.http = {
       'favicon',
     ],
     staticAsset: express.static(process.cwd() + '/assets'),
-    staticUpload: express.static(process.cwd() + '/upload'),
+    staticUpload: express.static(process.cwd() + '/assets/upload/'),
     logApiCall: (function () {
       return async function (req, res, next) {
         // req.setTimeout(40000);
