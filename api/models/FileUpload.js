@@ -32,7 +32,7 @@ module.exports = {
     return {
       status: true,
       // url: (cacheService.getCacheConfig().base_url || process.env.BASE_URL || sails.config.custom.baseUrl) + '/' + fileUpload.serverFileName
-      url: process.env.NODE_ENV === "production" ? "https://xtutoring.herokuapp.com/" : 'http://localhost:1337/images/' + fileUpload.serverFileName
+      url: process.env.NODE_ENV === "production" ? "https://xtutoring.herokuapp.com/images" : 'http://localhost:1337/images/' + fileUpload.serverFileName
     };
   },
   attributes: {
