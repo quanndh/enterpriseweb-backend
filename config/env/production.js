@@ -72,8 +72,8 @@ module.exports = {
   sockets: {
 
 
-    onlyAllowOrigins: undefined,
-    
+    onlyAllowOrigins: ['https://tutoring-client.herokuapp.com', 'http://localhost:3000'],
+
     log: {
       level: 'debug'
     },
@@ -84,7 +84,7 @@ module.exports = {
       cache: 365.25 * 24 * 60 * 60 * 1000, // One year
 
 
-      // trustProxy: true,
+      trustProxy: true,
 
     },
 
