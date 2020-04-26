@@ -72,11 +72,8 @@ module.exports = {
   sockets: {
 
 
-    // onlyAllowOrigins: [
-    //   'https://tutoring-client.herokuapp.com', 'http://localhost:3000'
-    // ],
-
-
+    onlyAllowOrigins: undefined,
+    
     log: {
       level: 'debug'
     },
