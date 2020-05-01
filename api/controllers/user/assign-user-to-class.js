@@ -54,7 +54,7 @@ module.exports = {
 
       await ActionLog.create({ owner: this.req.user.id, action: `Assign new student to tutor: ${tutorInfo.fullName}`, role: this.req.user.role })
       if(process.env.NODE_ENV !== "production"){
-        await sails.helpers.common.sendMail(data)
+        sails.helpers.common.sendMail(data)
 
         data = {
           email: studentMail,
@@ -64,7 +64,7 @@ module.exports = {
           <p>We want to inform you that you are assigned to new tutor: ${tutorInfo.fullName} - ${tutorInfo.email}.</p>
          `
         }
-        await sails.helpers.common.sendMail(data)
+        sails.helpers.common.sendMail(data)
       }
     
       return exits.success({
