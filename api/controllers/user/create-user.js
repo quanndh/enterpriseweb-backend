@@ -67,7 +67,7 @@ module.exports = {
          `
       }
 
-      await sails.helpers.common.sendMail(data)
+      sails.helpers.common.sendMail(data)
 
       return exits.success({
         code: 0,
