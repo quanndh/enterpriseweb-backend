@@ -87,7 +87,7 @@ module.exports = {
       }
       let created = await FileUpload.createEach(filesCreate).fetch();
       for (let i = 0; i < created.length; i++) {
-        created[i].fullPath = 'http://localhost:1337/other/' + created[i].serverFileName
+        created[i].fullPath = 'https://xtutoring.herokuapp.com/other' + created[i].serverFileName
       }
 
       return exits.success({
