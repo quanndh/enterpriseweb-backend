@@ -5,11 +5,15 @@ a [Sails v1](https://sailsjs.com) application
 
 ### Setup step
 
-+ [Pull project from branch develop (master is for deployment)]
-+ [Install packages] npm install
-+ [Create "upload" folder at root of the project, inside "upload" there are 2 folders "other" and "images"]
-+ [Config your database connection at config/datastore.js]
-+ [Run the project]sails lift (if there are ploblems with database sails lift --drop)
++ Pull project from branch develop (master is for deployment)
++ Install nodejs
++ Install sails globally -> npm i -g sails
++ Install packages -> npm install
++ Create "upload" folder at root of the project, inside "upload" there are 2 folders "other" and "images"
++ Config your database connection at config/datastore.js
++ Run the project -> sails lift
++ if there are ploblems with database -> sails lift --drop
++ Your app should running on http://localhost:1337
 
 
 ### Version info
