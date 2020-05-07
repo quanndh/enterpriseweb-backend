@@ -3,18 +3,18 @@
 a [Sails v1](https://sailsjs.com) application
 
 
-### Links
+### Setup step
 
-+ [Sails framework documentation](https://sailsjs.com/get-started)
-+ [Version notes / upgrading](https://sailsjs.com/documentation/upgrading)
-+ [Deployment tips](https://sailsjs.com/documentation/concepts/deployment)
-+ [Community support options](https://sailsjs.com/support)
-+ [Professional / enterprise options](https://sailsjs.com/enterprise)
++ [Pull project from branch develop (master is for deployment)]
++ [Install packages] npm install
++ [Create "upload" folder at root of the project, inside "upload" there are 2 folders "other" and "images"]
++ [Config your database connection at config/datastore.js]
++ [Run the project]sails lift (if there are ploblems with database sails lift --drop)
 
 
 ### Version info
 
-This app was originally generated on Sat Mar 07 2020 14:43:46 GMT+0700 (Indochina Time) using Sails v1.2.3.
+This app was originally created by Nguyen Do Hong Quan - quanndh1810@gmail.com
 
 <!-- Internally, Sails used [`sails-generate@1.16.13`](https://github.com/balderdashy/sails-generate/tree/v1.16.13/lib/core-generators/new). -->
 
