@@ -13,6 +13,7 @@ a [Sails v1](https://sailsjs.com) application
 + Config your database connection at config/datastore.js
 + Run the project -> sails lift
 + if there are ploblems with database -> sails lift --drop
++ Your app should running on http://localhost:1337
 
 
 ### Version info
