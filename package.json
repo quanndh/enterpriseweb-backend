@@ -11,7 +11,7 @@
     "bcrypt": "^4.0.1",
     "grunt": "1.0.4",
     "jsonwebtoken": "^8.5.1",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "nodemailer": "^6.4.4",
     "pusher": "^3.0.0",
     "pusher-js": "^5.1.1",
