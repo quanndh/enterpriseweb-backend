@@ -9,7 +9,7 @@
     "@sailshq/lodash": "^3.10.3",
     "@sailshq/socket.io-redis": "^5.2.0",
     "bcrypt": "^4.0.1",
-    "grunt": "1.0.4",
+    "grunt": "1.5.3",
     "jsonwebtoken": "^8.5.1",
     "moment": "^2.24.0",
     "nodemailer": "^6.4.4",
