@@ -21,7 +21,7 @@
     "sails-hook-sockets": "^2.0.0",
     "sails-hook-uploads": "^0.4.2",
     "sails-mysql": "^1.0.1",
-    "sharp": "^0.25.1",
+    "sharp": "^0.30.5",
     "shortid": "^2.2.15",
     "skipper-disk": "^0.5.12",
     "twilio": "^3.42.1",
