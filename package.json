@@ -20,7 +20,7 @@
     "sails-hook-orm": "^2.1.1",
     "sails-hook-sockets": "^2.0.0",
     "sails-hook-uploads": "^0.4.2",
-    "sails-mysql": "^1.0.1",
+    "sails-mysql": "^3.0.0",
     "sharp": "^0.25.1",
     "shortid": "^2.2.15",
     "skipper-disk": "^0.5.12",
